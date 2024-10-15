@@ -2,7 +2,13 @@
   <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="fname">First Name: </label>
-      <input type="text" formControlName="firstName" id="fname" class="form-control" />
+      <input
+        type="text"
+        formControlName="firstName"
+        id="fname"
+        class="form-control"
+        [ngClass]="{ 'ng-touched': submited }"
+      />
       <span class="help-block">
         <span *ngIf="!form.get('firstName')?.valid && (form.get('firstName')?.touched || submited)">
           <span *ngIf="form.get('firstName')?.errors?.['maxlength']">Value is too long!</span>
@@ -13,7 +19,13 @@
 
     <div class="form-group">
       <label for="lname">Last Name: </label>
-      <input type="text" formControlName="lastName" id="lname" class="form-control" />
+      <input
+        type="text"
+        formControlName="lastName"
+        id="lname"
+        class="form-control"
+        [ngClass]="{ 'ng-touched': submited }"
+      />
       <span class="help-block">
         <span *ngIf="!form.get('lastName')?.valid && (form.get('lastName')?.touched || submited)">
           <span *ngIf="form.get('lastName')?.errors?.['maxlength']">Value is too long!</span>
@@ -24,7 +36,13 @@
 
     <div class="form-group">
       <label for="email">Email: </label>
-      <input type="email" formControlName="email" id="email" class="form-control" />
+      <input
+        type="email"
+        formControlName="email"
+        id="email"
+        class="form-control"
+        [ngClass]="{ 'ng-touched': submited }"
+      />
       <span class="help-block">
         <span *ngIf="!form.get('email')?.valid && (form.get('email')?.touched || submited)">
           <span *ngIf="form.get('email')?.errors?.['maxlength']">Email is too long!</span>
@@ -37,9 +55,21 @@
     <div class="form-group">
       <label>Gender: </label>
       <div class="form-radio-group">
-        <input type="radio" formControlName="gender" id="male" value="male" />
+        <input
+          type="radio"
+          formControlName="gender"
+          id="male"
+          value="male"
+          [ngClass]="{ 'ng-touched': submited }"
+        />
         <label for="male">Male</label>
-        <input type="radio" formControlName="gender" id="female" value="female" />
+        <input
+          type="radio"
+          formControlName="gender"
+          id="female"
+          value="female"
+          [ngClass]="{ 'ng-touched': submited }"
+        />
         <label for="female">Female</label>
       </div>
       <span class="help-block">
@@ -56,7 +86,7 @@
 
     <div class="form-group">
       <label for="country">Country: </label>
-      <select formControlName="country" id="country">
+      <select formControlName="country" id="country" [ngClass]="{ 'ng-touched': submited }">
         <option value="">--Select country--</option>
         <option *ngFor="let country of countries" [value]="country">
           {{ country }}
