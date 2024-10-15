@@ -4,9 +4,9 @@
       <label for="fname">First Name: </label>
       <input type="text" formControlName="firstName" id="fname" class="form-control" />
       <span class="help-block">
-        <span *ngIf="!form.get('lastName')?.valid && (form.get('lastName')?.touched || submited)">
-          <span *ngIf="form.get('lastName')?.errors?.['maxlength']">Value is too long!</span>
-          <span *ngIf="form.get('lastName')?.errors?.['required']">This field is required!</span>
+        <span *ngIf="!form.get('firstName')?.valid && (form.get('firstName')?.touched || submited)">
+          <span *ngIf="form.get('firstName')?.errors?.['maxlength']">Value is too long!</span>
+          <span *ngIf="form.get('firstName')?.errors?.['required']">This field is required!</span>
         </span>
       </span>
     </div>
