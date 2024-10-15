@@ -81,7 +81,18 @@
 
     <div class="form-group">
       <label for="married">Married: </label>
-      <input type="checkbox" formControlName="married" id="married" />
+      <input
+        type="checkbox"
+        formControlName="married"
+        id="married"
+        [ngClass]="{ 'ng-touched': submited }"
+      />
+
+      <span class="help-block">
+        <span *ngIf="!form.get('married')?.value && (form.get('married')?.touched || submited)">
+          This field is required!
+        </span>
+      </span>
     </div>
 
     <div class="form-group">

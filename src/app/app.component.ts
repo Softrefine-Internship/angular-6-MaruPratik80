@@ -19,20 +19,19 @@ export class AppComponent implements OnInit {
       lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(50)]),
       gender: new FormControl(null, Validators.required),
-      married: new FormControl(false, Validators.required),
+      married: new FormControl(null, Validators.required),
       country: new FormControl('', Validators.required),
     });
   }
 
   onSubmit() {
     this.submited = true;
-    if (this.form.valid) console.log(this.form.value);
+    console.log(this.form.value);
+    // if (this.form.valid) console.log(this.form.value);
   }
 
   onReset() {
     this.submited = false;
-    this.form.reset({
-      married: false,
-    });
+    this.form.reset();
   }
 }
